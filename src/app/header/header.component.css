@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Playfair_display_SC;
+  src: url(../../assets/font/Bungee_Inline/BungeeInline-Regular.ttf)
+}
+
+h1 {
+    font-family: Playfair_display_SC;
+    font-size: 45pt;
+}
+
+.social-links a{
+    display:inline-block;
+    margin:2px;
+}
