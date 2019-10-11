@@ -2,12 +2,16 @@
   font-family: Playfair_display_SC;
   src: url(../../assets/font/Bungee_Inline/BungeeInline-Regular.ttf)
 }
-
+header{
+  background-color:black;
+}
 h1 {
     font-family: Playfair_display_SC;
     font-size: 45pt;
 }
-
+.social-links{
+  margin-top:30px;
+}
 .social-links a{
     display:inline-block;
     margin:2px;
