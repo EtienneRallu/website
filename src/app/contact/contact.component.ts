@@ -13,8 +13,12 @@ export class ContactComponent implements OnInit {
 
   onSubmit() { this.submitted = true; }
 
-
+  get diagnostic() { return JSON.stringify(this.model); }
   constructor() { }
+  
+  newMessage() {
+    this.model = new Message();
+  }
 
   ngOnInit() {
   }

@@ -1,57 +1,103 @@
-<main>
-
-  <!--Section heading-->
+<main class="container">
   <h2 class="h1-responsive font-weight-bold text-center my-4">Contact</h2>
-  <!--Section description-->
+
   <p class="text-center w-responsive mx-auto mb-5">Please feel free to get in touch, I will come back to you as soon as
     possible.</p>
-  <form>
-    <div class="form-row">
-      <div class="col-md-6 col-sm-12">
-        <div class="form-group">
-          <label for="firstname">First name</label>
-          <input type="text" class="form-control" id="firstname" placeholder="John" required>
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #messageForm="ngForm">
+      <div class="form-row">
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="John" [(ngModel)]="model.firstName"
+              name="firstName" required #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine" class="invalid-feedback" style="display:inline">
+              First name is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="model.lastName" name="lastName"
+              placeholder="Doe" required #lastName="ngModel">
+
+            <div [hidden]="lastName.valid || lastName.pristine" class="invalid-feedback" style="display:inline">
+              Last name is required
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="form-group">
-          <label for="lastname">Last name</label>
-          <input type="text" class="form-control" id="lastname" placeholder="Doe" required>
+
+      <div class="form-row">
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="model.email" name="email"
+              placeholder="mail@example.com" id="email" #email="ngModel">
+            <div [hidden]="email.valid || email.pristine" class="invalid-feedback" style="display:inline">
+              Please enter a valid email address
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="phoneNumber">Phone number</label>
+            <input type="tel" class="form-control" [(ngModel)]="model.phoneNumber" name="phoneNumber"
+              placeholder="+XX XX XXX XX XX" id="phoneNumber" #phoneNumber="ngModel">
+          </div>
+          <div [hidden]="email.valid || email.pristine" class="invalid-feedback" style="display:inline">
+            Please enter a valid email address
+          </div>
         </div>
       </div>
+
+      <div class="form-row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" [(ngModel)]="model.subject" name="subject"
+              placeholder="What is your message about?" id="subject">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Example textarea</label>
+        <textarea class="form-control" id="content" [(ngModel)]="model.content" name="content" rows="5"
+          placeholder="Type your message here..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-success" (click)="newMessage()"
+        [disabled]="!messageForm.form.valid">Send</button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">First name</div>
+      <div class="col-xs-9">{{ model.firstName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Last name</div>
+      <div class="col-xs-9">{{ model.lastName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Email</div>
+      <div class="col-xs-9">{{ model.email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Phone number</div>
+      <div class="col-xs-9">{{ model.phoneNumber }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Subject</div>
+      <div class="col-xs-9">{{ model.subject }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Content</div>
+      <div class="col-xs-9">{{ model.content }}</div>
     </div>
 
-    <div class="form-row">
-      <div class="col-md-6 col-sm-12">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" placeholder="mail@example.com" id="email">
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-12">
-        <div class="form-group">
-          <label for="phoneNumber">Phone number</label>
-          <input type="tel" class="form-control" placeholder="+XX XX XXX XX XX" id="phoneNumber">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-12">
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" class="form-control" placeholder="What is your message about?" id="subject">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="content">Example textarea</label>
-      <textarea class="form-control" id="content" rows="5" placeholder="Type your message here..."></textarea>
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-
-  </form>
-
+  </div>
 </main>
