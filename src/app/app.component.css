@@ -1,3 +1,9 @@
+app-header{
+    background-color:black;
+    min-height:100%; 
+    padding-top:55px;
+}
 #main{
-    background-color:#ffc966;    
+    background-color:#ffc966;
+    padding-top:55px; 
 }

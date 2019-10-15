@@ -1,10 +1,10 @@
 <div class="container-fluid h-100">
   <app-navbar class="d-none d-sm-block"></app-navbar>
-  <div class="row h-100 bg-dark" style="min-height: 100%; padding-top:55px;">
-    <app-header class="h-100 overflow-auto col-md-12  col-lg-5 bg-dark"></app-header>
-    <div id="main" class="h-100 overflow-auto col-md-12  col-lg-7">
-     <router-outlet></router-outlet>
-     <!-- <app-main></app-main>-->
+  <div class="row h-100">
+    <app-header class="h-100 overflow-auto col-md-12  col-lg-5"></app-header>
+    <div id="main" [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']"
+      class="h-100 overflow-auto col-md-12 col-lg-7">
+      <router-outlet #o="outlet"></router-outlet>
     </div>
   </div>
 </div>
