@@ -34,8 +34,8 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" [(ngModel)]="model.email" name="email"
-              placeholder="mail@example.com" id="email" #email="ngModel">
-            <div [hidden]="email.valid || email.pristine" class="invalid-feedback" style="display:inline">
+              placeholder="mail@example.com" id="email" #email="ngModel" email>
+            <div [hidden]="email.valid || email.untouched" class="invalid-feedback" style="display:inline">
               Please enter a valid email address
             </div>
           </div>
@@ -46,9 +46,9 @@
             <label for="phoneNumber">Phone number</label>
             <input type="tel" class="form-control" [(ngModel)]="model.phoneNumber" name="phoneNumber"
               placeholder="+XX XX XXX XX XX" id="phoneNumber" #phoneNumber="ngModel">
-          </div>
-          <div [hidden]="email.valid || email.pristine" class="invalid-feedback" style="display:inline">
-            Please enter a valid email address
+            <div [hidden]="phoneNumber.valid || phoneNumber.pristine" class="invalid-feedback" style="display:inline">
+              Please enter a valid phone number
+            </div>
           </div>
         </div>
       </div>
@@ -58,45 +58,87 @@
           <div class="form-group">
             <label for="subject">Subject</label>
             <input type="text" class="form-control" [(ngModel)]="model.subject" name="subject"
-              placeholder="What is your message about?" id="subject">
+              placeholder="What is your message about?" id="subject" #subject="ngModel" required>
+            <div [hidden]="subject.valid || subject.pristine" class="invalid-feedback" style="display:inline">
+              Please enter a subject
+            </div>
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="content">Example textarea</label>
+        <label for="content">Message</label>
         <textarea class="form-control" id="content" [(ngModel)]="model.content" name="content" rows="5"
-          placeholder="Type your message here..."></textarea>
+          #content="ngModel" required placeholder="Type your message here..."></textarea>
+        <div [hidden]="content.valid || content.pristine" class="invalid-feedback" style="display:inline">
+          Please enter a message
+        </div>
       </div>
-      <button type="submit" class="btn btn-success" (click)="newMessage()"
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="optIn" name="optIn"
+          [(ngModel)]="model.optIn"  #optIn="ngModel" id="newsletter">
+          <label class="form-check-label" for="newsletter">
+            I want to receive the newsletter and promotional information (never more than once a month)
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" 
         [disabled]="!messageForm.form.valid">Send</button>
     </form>
   </div>
+
   <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">First name</div>
-      <div class="col-xs-9">{{ model.firstName }}</div>
+    <div class="alert alert-success" role="alert">
+      Your message was sent successfully !
     </div>
     <div class="row">
-      <div class="col-xs-3">Last name</div>
-      <div class="col-xs-9">{{ model.lastName }}</div>
+      <div class="col-3">
+        <p>Firstname : </p>
+      </div>
+      <div class="col-9">
+        <p>{{ model.firstName }}</p>
+      </div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Email</div>
-      <div class="col-xs-9">{{ model.email }}</div>
+      <div class="col-3">
+        <p>Lastname : <p>
+      </div>
+      <div class="col-9">
+        <p>{{ model.lastName }}</p>
+      </div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Phone number</div>
-      <div class="col-xs-9">{{ model.phoneNumber }}</div>
+      <div class="col-3">
+        <p>Email</p>
+      </div>
+      <div class="col-9">
+        <p>{{ model.email }}</p>
+      </div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Subject</div>
-      <div class="col-xs-9">{{ model.subject }}</div>
+      <div class="col-3">
+        <p>Phone number</p>
+      </div>
+      <div class="col-9">
+        <p>{{ model.phoneNumber }}</p>
+      </div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Content</div>
-      <div class="col-xs-9">{{ model.content }}</div>
+      <div class="col-3">
+        <p>Subject</p>
+      </div>
+      <div class="col-9">
+        <p>{{ model.subject }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <p>Content</p>
+      </div>
+      <div class="col-9">
+        <pre>{{ model.content }}</pre>
+      </div>
     </div>
 
   </div>

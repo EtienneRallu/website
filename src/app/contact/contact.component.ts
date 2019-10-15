@@ -1,26 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Message }    from '../message';
-
+import { MessageService } from '../message.service';
+import { analyzeFileForInjectables } from '@angular/compiler';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  model = new Message();
-
+ 
+  model: Message = new Message(); 
   submitted = false;
-
-  onSubmit() { this.submitted = true; }
-
-  get diagnostic() { return JSON.stringify(this.model); }
-  constructor() { }
   
-  newMessage() {
-    this.model = new Message();
+  constructor(private messageService:MessageService) { }
+
+  onSubmit() {
+
+   this.messageService.sendMessage(this.model).subscribe(message =>{ this.submitted = true})
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
