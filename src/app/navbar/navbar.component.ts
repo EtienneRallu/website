@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  isToggled:boolean =false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleNavBar()
+  {
+    this.isToggled = !this.isToggled;
+  }
+  setClasses() {
+    let classes = {
+      'show': this.isToggled
+    }
+    return classes;
+  }
 }

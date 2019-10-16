@@ -1,21 +1,26 @@
-<nav class="navbar navbar-expand navbar-dark fixed-top  ">
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+  <div class="mx-auto">
+    <button class="navbar-toggler" type="button" (click)="toggleNavBar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
   <span class="d-none d-md-inline navbar-brand mb-0 h1">Etienne Rallu</span>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse" [ngClass]=setClasses()>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="bio" routerLinkActive="active">Bio</a>
-        </li>      
       <li class="nav-item">
-        <a class="nav-link" href="#">Film</a>
+        <a class="nav-link" routerLink="bio" routerLinkActive="active" (click)="toggleNavBar()" >Bio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Music</a>
+        <a class="nav-link" href="#" (click)="toggleNavBar()">Film</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Web IT&Communication</a>
+        <a class="nav-link" href="#" (click)="toggleNavBar()">Music</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        <a class="nav-link" href="#" (click)="toggleNavBar()">Web IT&Communication</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="toggleNavBar()">Contact</a>
       </li>
 
     </ul>

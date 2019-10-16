@@ -25,7 +25,7 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule    
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
