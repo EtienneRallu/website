@@ -1,5 +1,5 @@
 <div class="container-fluid h-100">
-  <app-navbar></app-navbar>
+  <app-navbar  (scroll)="onScroll('#main')"></app-navbar>
   <div class="row h-100">
     <app-header class="h-100 overflow-auto col-md-12  col-lg-5"></app-header>
     <div id="main" [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']"

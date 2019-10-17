@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { ContactComponent } from './contact/contact.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    NgxPageScrollCoreModule.forRoot({duration: 250})
   ],
   providers: [],
   bootstrap: [AppComponent]

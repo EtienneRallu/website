@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  @Output() scroll: EventEmitter<any> = new EventEmitter();
 
   isToggled:boolean =false;
   constructor() { }
-
-  ngOnInit() {
-  }
 
   toggleNavBar()
   {
@@ -22,5 +20,9 @@ export class NavbarComponent implements OnInit {
       'show': this.isToggled
     }
     return classes;
+  }
+
+  scrollToMain() {
+    this.scroll.emit(true);
   }
 }
