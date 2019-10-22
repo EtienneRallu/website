@@ -1,3 +1,10 @@
-main{    
-    padding-top:20px;
+.bg-light{
+    background-color: rgba(248, 249, 250,0.8) !important;
+}
+section
+{
+  padding-top:10px;
+  padding-bottom: 5px; 
+  margin-bottom:20px; 
+  
 }

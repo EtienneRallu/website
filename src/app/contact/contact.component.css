@@ -2,3 +2,7 @@ main{
     padding-bottom: 25px;
     margin-bottom: 25px;
 }
+
+.bg-light{
+    background-color: rgba(248, 249, 250,0.8) !important;
+}
