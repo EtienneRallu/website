@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,13 +12,19 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { HomeComponent } from './home/home.component';
+import { FilmComponent } from './film/film.component';
+import { MusicComponent } from './music/music.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
     NavbarComponent,
-    ContactComponent
+    ContactComponent,
+    HomeComponent,
+    FilmComponent,
+    MusicComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -29,7 +35,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
     FormsModule,
     NgxPageScrollCoreModule.forRoot({duration: 250})
   ],
-  providers: [],
+  providers: [ Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

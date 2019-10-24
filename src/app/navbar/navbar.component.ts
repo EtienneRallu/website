@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  @Output() scroll: EventEmitter<any> = new EventEmitter();
+  @Output() title: EventEmitter<string> = new EventEmitter();
 
   isToggled:boolean =false;
   constructor() { }
@@ -15,14 +15,7 @@ export class NavbarComponent {
   {
     this.isToggled = !this.isToggled;
   }
-  setClasses() {
-    let classes = {
-      'show': this.isToggled
-    }
-    return classes;
-  }
-
-  scrollToMain() {
-    this.scroll.emit(true);
+  resetTitle() {
+    this.title.emit('reset');
   }
 }

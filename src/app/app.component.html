@@ -1,10 +1,10 @@
 <div class="container-fluid h-100">
-  <app-navbar  (scroll)="onScroll('#main')"></app-navbar>
+  <app-navbar (title)="resetTitle()"></app-navbar>
   <div class="row h-100">
-    <app-header class="h-100 overflow-auto col-md-12  col-lg-5"></app-header>
-    <div id="main" [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']"
+    <app-header class="h-100 overflow-auto col-md-12 col-lg-5" [ngClass]="{'mx-auto col-lg-6': this.router.url === '/'}"></app-header>
+    <div id="main" *ngIf="this.router.url !== '/'" [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']"
       class="h-100 overflow-auto col-md-12 col-lg-7">
-      <router-outlet #o="outlet"></router-outlet>
+      <router-outlet (activate)="onActivate($event)" #o="outlet"></router-outlet>
     </div>
   </div>
 </div>

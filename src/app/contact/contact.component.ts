@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { Message }    from '../message';
 import { MessageService } from '../message.service';
 import { analyzeFileForInjectables } from '@angular/compiler';
@@ -11,14 +11,15 @@ export class ContactComponent implements OnInit {
  
   model: Message = new Message(); 
   submitted = false;
-  
-  constructor(private messageService:MessageService) { }
+  @Output() title: EventEmitter<string> = new EventEmitter();
 
-  onSubmit() {
-
-   this.messageService.sendMessage(this.model).subscribe(message =>{ this.submitted = true})
+  constructor(private messageService:MessageService) { }  
+    
+  ngOnInit() {
+    this.title.emit('Contact');
   }
 
-  ngOnInit() {}
-
+  onSubmit() {
+   this.messageService.sendMessage(this.model).subscribe(message =>{ this.submitted = true})
+  }
 }
