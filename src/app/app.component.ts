@@ -3,7 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { slideInAnimation } from './route-animation';
 import { PageScrollService } from 'ngx-page-scroll-core';
 import { Router } from '@angular/router';
-import { Title }     from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,10 +12,10 @@ import { Title }     from '@angular/platform-browser';
 })
 export class AppComponent {
   constructor(private pageScrollService: PageScrollService,
-    @Inject(DOCUMENT)
+              @Inject(DOCUMENT)
     private document: any,
-    public router: Router,
-    private titleService: Title) { }
+              public router: Router,
+              private titleService: Title) { }
 
   title = 'Etienne Rallu - Sound and Media Engineer';
 
@@ -23,18 +23,17 @@ export class AppComponent {
     this.pageScrollService.scroll({
       document: this.document,
       scrollTarget: '#main',
-    })
+    });
     componentReference.title.subscribe((data) => {
       this.setTitle(this.title + ' - ' + data);
-   })
+   });
   }
 
   public setTitle( newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
-  public resetTitle()
-  {
+  public resetTitle() {
     this.setTitle(this.title);
   }
 }

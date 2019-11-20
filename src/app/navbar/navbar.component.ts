@@ -8,11 +8,10 @@ import { Component, EventEmitter, Output} from '@angular/core';
 export class NavbarComponent {
   @Output() title: EventEmitter<string> = new EventEmitter();
 
-  isToggled:boolean =false;
+  isToggled = false;
   constructor() { }
 
-  toggleNavBar()
-  {
+  toggleNavBar() {
     this.isToggled = !this.isToggled;
   }
   resetTitle() {

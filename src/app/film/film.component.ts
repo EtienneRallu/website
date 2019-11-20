@@ -8,10 +8,10 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 export class FilmComponent implements OnInit {
 
   @Output() title: EventEmitter<string> = new EventEmitter();
-  
+
   ngOnInit() {
     this.title.emit('Film');
   }
- 
+
 }
 

@@ -6,5 +6,5 @@ export class Message {
     public phoneNumber: string;
     public subject: string;
     public content: string;
-    public optIn: boolean = false;
+    public optIn = false;
 }
