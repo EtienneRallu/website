@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   @Output() title: EventEmitter<string> = new EventEmitter();
 
   ngOnInit() {
-    console.log('test');
     this.title.emit('');
   }
 
