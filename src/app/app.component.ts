@@ -16,7 +16,7 @@ export class AppComponent {
     private document: any,
     public router: Router,
     private titleService: Title) { }
-  
+
   title = 'Etienne Rallu - Sound and Media Engineer';
 
   onActivate(componentReference) {

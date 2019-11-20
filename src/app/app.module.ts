@@ -15,6 +15,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { HomeComponent } from './home/home.component';
 import { FilmComponent } from './film/film.component';
 import { MusicComponent } from './music/music.component';
+import { WebComponent } from './web/web.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { MusicComponent } from './music/music.component';
     ContactComponent,
     HomeComponent,
     FilmComponent,
-    MusicComponent
+    MusicComponent,
+    WebComponent
   ],
   imports: [
     BrowserAnimationsModule,
